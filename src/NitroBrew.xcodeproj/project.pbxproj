@@ -8,22 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		03D2C6BFDECA4B6D4D6B5C69 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CBDB573BCEE6722DDE8FB /* Settings.swift */; };
+		10F6B1638EDBC71F87624EDA /* WindowTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D23742BD42056CC811BCEB8 /* WindowTab.swift */; };
 		125966877A43A36C7601E730 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB066BF0D43E071C424687F /* Notifier.swift */; };
 		17C401AA8E31A4C849CA3668 /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0E757F97BB6C43B7AFADE /* SmokeTests.swift */; };
 		1A5707F5A776D396C57FDEEA /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603F1959A2E66D15232EDB /* Vessel.swift */; };
 		231D8D6E62D0E37958486893 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DADCFA01DACE20D2FB68C0C9 /* Localizable.xcstrings */; };
 		40447DC2C5D9D04A468E2F45 /* VesselTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F99C445A36AED28BF3CD1EF /* VesselTests.swift */; };
+		441183F178F42C65EECC2B1A /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A2D0157BE3714A6FB970D6 /* StatsView.swift */; };
 		5BF9A781AB2A57589C51AA15 /* FoamModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DD206997098254332A9799 /* FoamModelTests.swift */; };
+		6F2DF7BA3ABFFC5658C52C33 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474A9F994FFF56EA68090C3F /* TimerView.swift */; };
+		7630106DF3919583ED3BACAA /* AppVersion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304B2B997FA28082E0E8C48B /* AppVersion.swift */; };
 		823521F933742CEBD6CCB01A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6ED325A215C216D0548DB3 /* AppCoordinator.swift */; };
 		8322F0106CB1551665DE3DDB /* FoamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC133713B284F216C1B638AE /* FoamModel.swift */; };
 		84C5546B253D8F8A4FC53A52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D293F596B697F4B6E3AA25 /* AppDelegate.swift */; };
 		88095508EC623596E93B1959 /* StatsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE6EE792296BAD33BF776984 /* StatsStore.swift */; };
 		93027F044F898C00578AB3F0 /* SessionEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C63C9B668E7F1A30CF75B9 /* SessionEngineTests.swift */; };
+		9B50C54E250BCD0BE13438D4 /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10192789059B02C93E331B17 /* TimeFormat.swift */; };
 		A3AD909CDB03496AC47B6060 /* NitroBrewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F925F291DC912EDB40FC0 /* NitroBrewApp.swift */; };
 		AFA7845AFC1A82D7FF5B2BB8 /* StatsStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40DBD1546CD1D3766EFA0BD /* StatsStoreTests.swift */; };
 		B4CE028B6D253B5563957A4A /* AppCoordinatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FA0C7DBC1198C53A8AE532 /* AppCoordinatorTests.swift */; };
 		B72330310987FB637031D19A /* SessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D5B86E9E9C119C5745563 /* SessionEngine.swift */; };
+		B8F7B0BF0846CCE8D0FEF79D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224546F14D9A49D0B1A7EEFF /* SettingsView.swift */; };
 		C9E4CE78CC3731FED494D812 /* MenuBarIconRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC2AFD31206FEB7EEF59CD2 /* MenuBarIconRenderer.swift */; };
+		D2B46698D95CBFDEB1DA0333 /* ViewSupportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A27B5C432639170182CE10FB /* ViewSupportTests.swift */; };
 		D2F4009433523A563DD90450 /* SessionMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616E83834A464E7461E9AD3 /* SessionMode.swift */; };
 		E5369403D7817ECCD0E65642 /* VesselAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932831478FF1D3968B09E4C7 /* VesselAnimator.swift */; };
 		E6A1FB9E8CB58B781E5E152F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D095D8E88BFB96BE9950B5D /* Theme.swift */; };
@@ -46,25 +53,32 @@
 
 /* Begin PBXFileReference section */
 		0F5609C5A03D253532437922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		10192789059B02C93E331B17 /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		14E1EF1149D592F6192A0A59 /* CascadeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CascadeModel.swift; sourceTree = "<group>"; };
 		203DD6C68782AEB122C64A1A /* NitroBrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NitroBrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		224546F14D9A49D0B1A7EEFF /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		226CBDB573BCEE6722DDE8FB /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		304B2B997FA28082E0E8C48B /* AppVersion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppVersion.swift; sourceTree = "<group>"; };
 		4616E83834A464E7461E9AD3 /* SessionMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMode.swift; sourceTree = "<group>"; };
 		469D5B86E9E9C119C5745563 /* SessionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEngine.swift; sourceTree = "<group>"; };
+		474A9F994FFF56EA68090C3F /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		48DD206997098254332A9799 /* FoamModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoamModelTests.swift; sourceTree = "<group>"; };
 		49603F1959A2E66D15232EDB /* Vessel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
 		4B63F54561C3F3F6C0B56A02 /* VesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselView.swift; sourceTree = "<group>"; };
 		4D6ED325A215C216D0548DB3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		6146953C8EB6721B8DACE0BD /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		7D095D8E88BFB96BE9950B5D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		7D23742BD42056CC811BCEB8 /* WindowTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTab.swift; sourceTree = "<group>"; };
 		7F99C445A36AED28BF3CD1EF /* VesselTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselTests.swift; sourceTree = "<group>"; };
 		8A3F925F291DC912EDB40FC0 /* NitroBrewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NitroBrewApp.swift; sourceTree = "<group>"; };
 		932831478FF1D3968B09E4C7 /* VesselAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselAnimator.swift; sourceTree = "<group>"; };
 		99C63C9B668E7F1A30CF75B9 /* SessionEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEngineTests.swift; sourceTree = "<group>"; };
+		A27B5C432639170182CE10FB /* ViewSupportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewSupportTests.swift; sourceTree = "<group>"; };
 		AD66000ACFE1EAF65199463B /* NitroBrewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NitroBrewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FA0C7DBC1198C53A8AE532 /* AppCoordinatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorTests.swift; sourceTree = "<group>"; };
 		B6D293F596B697F4B6E3AA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFB0E757F97BB6C43B7AFADE /* SmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTests.swift; sourceTree = "<group>"; };
+		D0A2D0157BE3714A6FB970D6 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		DADCFA01DACE20D2FB68C0C9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		DE6EE792296BAD33BF776984 /* StatsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStore.swift; sourceTree = "<group>"; };
 		DFC2AFD31206FEB7EEF59CD2 /* MenuBarIconRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIconRenderer.swift; sourceTree = "<group>"; };
@@ -121,6 +135,7 @@
 				BFB0E757F97BB6C43B7AFADE /* SmokeTests.swift */,
 				F40DBD1546CD1D3766EFA0BD /* StatsStoreTests.swift */,
 				7F99C445A36AED28BF3CD1EF /* VesselTests.swift */,
+				A27B5C432639170182CE10FB /* ViewSupportTests.swift */,
 			);
 			path = NitroBrewTests;
 			sourceTree = "<group>";
@@ -128,7 +143,11 @@
 		5B7A34651F83D43B2A7048A7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				224546F14D9A49D0B1A7EEFF /* SettingsView.swift */,
+				D0A2D0157BE3714A6FB970D6 /* StatsView.swift */,
 				7D095D8E88BFB96BE9950B5D /* Theme.swift */,
+				474A9F994FFF56EA68090C3F /* TimerView.swift */,
+				7D23742BD42056CC811BCEB8 /* WindowTab.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +161,7 @@
 				4616E83834A464E7461E9AD3 /* SessionMode.swift */,
 				226CBDB573BCEE6722DDE8FB /* Settings.swift */,
 				DE6EE792296BAD33BF776984 /* StatsStore.swift */,
+				10192789059B02C93E331B17 /* TimeFormat.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -151,6 +171,7 @@
 			children = (
 				4D6ED325A215C216D0548DB3 /* AppCoordinator.swift */,
 				B6D293F596B697F4B6E3AA25 /* AppDelegate.swift */,
+				304B2B997FA28082E0E8C48B /* AppVersion.swift */,
 				8A3F925F291DC912EDB40FC0 /* NitroBrewApp.swift */,
 			);
 			path = App;
@@ -270,6 +291,7 @@
 			files = (
 				823521F933742CEBD6CCB01A /* AppCoordinator.swift in Sources */,
 				84C5546B253D8F8A4FC53A52 /* AppDelegate.swift in Sources */,
+				7630106DF3919583ED3BACAA /* AppVersion.swift in Sources */,
 				E94577F288FBDAEEBDC65859 /* CascadeModel.swift in Sources */,
 				8322F0106CB1551665DE3DDB /* FoamModel.swift in Sources */,
 				C9E4CE78CC3731FED494D812 /* MenuBarIconRenderer.swift in Sources */,
@@ -279,11 +301,16 @@
 				B72330310987FB637031D19A /* SessionEngine.swift in Sources */,
 				D2F4009433523A563DD90450 /* SessionMode.swift in Sources */,
 				03D2C6BFDECA4B6D4D6B5C69 /* Settings.swift in Sources */,
+				B8F7B0BF0846CCE8D0FEF79D /* SettingsView.swift in Sources */,
 				88095508EC623596E93B1959 /* StatsStore.swift in Sources */,
+				441183F178F42C65EECC2B1A /* StatsView.swift in Sources */,
 				E6A1FB9E8CB58B781E5E152F /* Theme.swift in Sources */,
+				9B50C54E250BCD0BE13438D4 /* TimeFormat.swift in Sources */,
+				6F2DF7BA3ABFFC5658C52C33 /* TimerView.swift in Sources */,
 				1A5707F5A776D396C57FDEEA /* Vessel.swift in Sources */,
 				E5369403D7817ECCD0E65642 /* VesselAnimator.swift in Sources */,
 				EF4B6B3710C483EFD3571E47 /* VesselView.swift in Sources */,
+				10F6B1638EDBC71F87624EDA /* WindowTab.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +326,7 @@
 				17C401AA8E31A4C849CA3668 /* SmokeTests.swift in Sources */,
 				AFA7845AFC1A82D7FF5B2BB8 /* StatsStoreTests.swift in Sources */,
 				40447DC2C5D9D04A468E2F45 /* VesselTests.swift in Sources */,
+				D2B46698D95CBFDEB1DA0333 /* ViewSupportTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
