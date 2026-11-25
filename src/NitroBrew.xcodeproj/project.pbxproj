@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03D2C6BFDECA4B6D4D6B5C69 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226CBDB573BCEE6722DDE8FB /* Settings.swift */; };
+		125966877A43A36C7601E730 /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB066BF0D43E071C424687F /* Notifier.swift */; };
 		17C401AA8E31A4C849CA3668 /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0E757F97BB6C43B7AFADE /* SmokeTests.swift */; };
 		1A5707F5A776D396C57FDEEA /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603F1959A2E66D15232EDB /* Vessel.swift */; };
 		231D8D6E62D0E37958486893 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DADCFA01DACE20D2FB68C0C9 /* Localizable.xcstrings */; };
@@ -27,6 +28,8 @@
 		E94577F288FBDAEEBDC65859 /* CascadeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E1EF1149D592F6192A0A59 /* CascadeModel.swift */; };
 		E994291B454980780982D8A3 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6146953C8EB6721B8DACE0BD /* SettingsTests.swift */; };
 		EF4B6B3710C483EFD3571E47 /* VesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B63F54561C3F3F6C0B56A02 /* VesselView.swift */; };
+		F7C68105272EE4C9211A7518 /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDE70713E63DA4ECCE736A4 /* Messages.swift */; };
+		FA39E872FC4DC6A0F0C3E6AB /* MessagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A84E5B3D93EA3899CC04CD /* MessagesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,8 +64,11 @@
 		DADCFA01DACE20D2FB68C0C9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		DE6EE792296BAD33BF776984 /* StatsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStore.swift; sourceTree = "<group>"; };
 		DFC2AFD31206FEB7EEF59CD2 /* MenuBarIconRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIconRenderer.swift; sourceTree = "<group>"; };
+		EEDE70713E63DA4ECCE736A4 /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
 		F40DBD1546CD1D3766EFA0BD /* StatsStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsStoreTests.swift; sourceTree = "<group>"; };
+		F6A84E5B3D93EA3899CC04CD /* MessagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTests.swift; sourceTree = "<group>"; };
 		FC133713B284F216C1B638AE /* FoamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoamModel.swift; sourceTree = "<group>"; };
+		FDB066BF0D43E071C424687F /* Notifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -104,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				48DD206997098254332A9799 /* FoamModelTests.swift */,
+				F6A84E5B3D93EA3899CC04CD /* MessagesTests.swift */,
 				99C63C9B668E7F1A30CF75B9 /* SessionEngineTests.swift */,
 				6146953C8EB6721B8DACE0BD /* SettingsTests.swift */,
 				BFB0E757F97BB6C43B7AFADE /* SmokeTests.swift */,
@@ -124,6 +131,8 @@
 		97FAC877DED200A0D21E2E2F /* Timer */ = {
 			isa = PBXGroup;
 			children = (
+				EEDE70713E63DA4ECCE736A4 /* Messages.swift */,
+				FDB066BF0D43E071C424687F /* Notifier.swift */,
 				469D5B86E9E9C119C5745563 /* SessionEngine.swift */,
 				4616E83834A464E7461E9AD3 /* SessionMode.swift */,
 				226CBDB573BCEE6722DDE8FB /* Settings.swift */,
@@ -257,7 +266,9 @@
 				E94577F288FBDAEEBDC65859 /* CascadeModel.swift in Sources */,
 				8322F0106CB1551665DE3DDB /* FoamModel.swift in Sources */,
 				C9E4CE78CC3731FED494D812 /* MenuBarIconRenderer.swift in Sources */,
+				F7C68105272EE4C9211A7518 /* Messages.swift in Sources */,
 				A3AD909CDB03496AC47B6060 /* NitroBrewApp.swift in Sources */,
+				125966877A43A36C7601E730 /* Notifier.swift in Sources */,
 				B72330310987FB637031D19A /* SessionEngine.swift in Sources */,
 				D2F4009433523A563DD90450 /* SessionMode.swift in Sources */,
 				03D2C6BFDECA4B6D4D6B5C69 /* Settings.swift in Sources */,
@@ -274,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BF9A781AB2A57589C51AA15 /* FoamModelTests.swift in Sources */,
+				FA39E872FC4DC6A0F0C3E6AB /* MessagesTests.swift in Sources */,
 				93027F044F898C00578AB3F0 /* SessionEngineTests.swift in Sources */,
 				E994291B454980780982D8A3 /* SettingsTests.swift in Sources */,
 				17C401AA8E31A4C849CA3668 /* SmokeTests.swift in Sources */,
