@@ -54,11 +54,22 @@ final class VesselTests: XCTestCase {
         for v in Vessel.allCases {
             let g = VesselGeometry.geometry(for: v)
             let box = g.outline.boundingBoxOfPath
-            XCTAssertEqual(g.liquidTop, box.maxY, accuracy: 0.001, "\(v) liquid starts at the bottom of the glass")
+            XCTAssertEqual(g.liquidTop, g.inner.boundingBoxOfPath.maxY, accuracy: 0.001, "\(v) liquid starts at the visible floor of the glass")
             let fullSurface = g.liquidTop - g.liquidHeight
             let headroom = fullSurface - box.minY
             XCTAssertGreaterThanOrEqual(headroom, g.hasFoam ? 3.2 - 0.001 : 0.8 - 0.001, "\(v) headroom at 100%")
             XCTAssertLessThan(headroom, 4.0, "\(v) headroom is not wasteful")
+        }
+    }
+
+    func testLiquidIsVisibleFromTheFirstPercent() {
+        for v in Vessel.allCases {
+            let g = VesselGeometry.geometry(for: v)
+            let floor = g.inner.boundingBoxOfPath.maxY
+            for level in [0.01, 0.02, 0.04] {
+                XCTAssertLessThan(g.liquidTop - CGFloat(level) * g.liquidHeight, floor, "\(v) surface at \(level) is above the floor")
+            }
+            XCTAssertNotEqual(bitmap(v, 0.03), bitmap(v, 0), "\(v) icon shows something at 3%")
         }
     }
 
