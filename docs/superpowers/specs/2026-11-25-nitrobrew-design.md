@@ -21,7 +21,11 @@ The central idea: **the timer is a vessel that fills with nitro brew as your wor
 ## Non-goals
 
 - iOS, widgets, Live Activities. The old README described these but they never existed in the zip.
-- Cloud sync, accounts, auto-updater, analytics.
+- Cloud sync, accounts, an in-app auto-updater, analytics.
+
+## Versioning
+
+Every update ships as a new release version. The app reflects it: the version and build are read from the bundle, shown in Settings and in an "About NitroBrew" menu item, and a release tag `vX.Y.Z` must match the built version and have a `CHANGELOG.md` entry, or the release job fails. Initial version `1.0.0`. **(author's requirement; the display and enforcement details are my call)**
 - Multiple color palettes or a light/dark toggle (see calls below).
 
 ## Anti-goals (failure even if it technically works)

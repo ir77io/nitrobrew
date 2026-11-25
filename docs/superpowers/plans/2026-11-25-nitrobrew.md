@@ -21,6 +21,7 @@
 - Foam thickness never jumps: zero at empty, full head by 45% fill, eased every frame.
 - Dark look only (black background, cream and amber accents). No palettes, no light/dark toggle.
 - All user-facing strings live in a String Catalog (`Localizable.xcstrings`); English only for now.
+- Every update is a new release version. `MARKETING_VERSION` in `project.yml` is the single source of truth; the app reads it from the bundle (`CFBundleShortVersionString`, build from `CFBundleVersion`), shows it in the app, and a release tag `vX.Y.Z` must equal it. Each version gets a `CHANGELOG.md` entry. Initial version `1.0.0`.
 - Write fresh code. Do not copy from the old timer or from Caffeine (repo is GPL-3).
 - Commit messages end with: `Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>`.
 - Test command: `xcodebuild test -project src/NitroBrew.xcodeproj -scheme NitroBrew -destination "platform=macOS"`.
@@ -173,7 +174,8 @@
   - `enum Theme { static let background: Color; cream, amber, roast, foam }`. Background is pure black.
 
 - [ ] **Step 1:** Write `ThemeTests.testBackgroundIsBlack` (resolve `Theme.background` to sRGB components 0, 0, 0).
-- [ ] **Step 2:** Run it. Expected: FAIL. Implement `Theme`, then the three views to match the prototype's layout and wording. Run again. Expected: PASS.
+- [ ] **Step 2:** Also write `AppVersion` tests in `src/NitroBrewTests/AppVersionTests.swift`: `AppVersion.display(from: [String: Any]) -> String` returns "Version 1.0.0 (1)" for `CFBundleShortVersionString` "1.0.0" and `CFBundleVersion` "1", and "Version unknown" when keys are missing; `AppVersion.current` equals the bundle's values. `SettingsView` shows `AppVersion.current.display` as a footer line, and the right-click menu (Task 7) has an "About NitroBrew" item that shows the same text.
+- [ ] **Step 2b:** Run it. Expected: FAIL. Implement `Theme` and `AppVersion` (in `src/NitroBrew/App/AppVersion.swift`), then the three views to match the prototype's layout and wording. Run again. Expected: PASS.
 - [ ] **Step 3:** Add `#Preview` blocks for `TimerView` at idle, 40% work, and done states; build to confirm they compile.
 - [ ] **Step 4:** Commit: `feat: timer, settings and stats views`.
 
@@ -222,7 +224,7 @@
 
 - [ ] **Step 1:** Run the app (`xcodebuild ... build`, then open the built app). Verify by eye and note results in the PR description: for each of the three vessels, the icon in the menu bar fills with progress and matches the popover vessel; foam grows gradually with no pop; cascade plays on a fresh work start only; launch a debug build with `-NitroBrewDebugSpeed 60` to reach completion quickly, confirm notification, chime and "Start 5 min break"; break drains and ends with "Glass is empty" (and "Can is empty" for the can); relaunch mid-session and after the end time.
 - [ ] **Step 2:** Confirm the pint and pub glass icons are distinguishable at 18 px in the real menu bar; if not, adjust `VesselGeometry` for pub and re-run `VesselTests`.
-- [ ] **Step 3:** Write `README.md` and `CHANGELOG.md` (short: what it is, build and test commands, GPL-3).
+- [ ] **Step 3:** Write `README.md` and `CHANGELOG.md` (short: what it is, build and test commands, GPL-3). `CHANGELOG.md` starts with a `## 1.0.0` entry. Add a "Releasing" section to `CLAUDE.md`: bump `MARKETING_VERSION` (and `CURRENT_PROJECT_VERSION`) in `project.yml`, run `xcodegen generate`, add a changelog entry, commit, then tag `vX.Y.Z`.
 - [ ] **Step 4:** Commit: `docs: README, changelog and verification notes`.
 
 ### Task 10: App icon
@@ -233,6 +235,20 @@
 - [ ] **Step 1:** Write `scripts/make_app_icon.swift` (`swift scripts/make_app_icon.swift <out.png>`) drawing a pint glass of nitro brew with a cream foam head and a few cascade streaks on a black rounded square. It must not contain a mug, saucer or steam.
 - [ ] **Step 2:** Generate the icon sizes into `AppIcon.appiconset`, point `project.yml` at it, regenerate the project, build.
 - [ ] **Step 3:** Commit: `feat: app icon`.
+
+### Task 11: GitHub Actions build, test and release
+
+**Files:**
+- Create: `.github/workflows/ci.yml`, `.github/workflows/release.yml`, `scripts/build_pkg.sh`
+
+**Interfaces:**
+- Consumes: the `NitroBrew` scheme and `NitroBrewTests` target from Task 0 (the generated `.xcodeproj` is committed, so CI does not need XcodeGen).
+- Produces: `ci.yml` (on push to `main` and on every pull request: build and run the test command from Global Constraints); `release.yml` (on a `v*` tag or manual run: build `build/NitroBrew-<version>.pkg` with `scripts/build_pkg.sh`, upload it as an artifact, and on tags create a GitHub Release). `scripts/build_pkg.sh` builds a Release app (ad-hoc signed, pkg unsigned by default; signs and notarizes when `APP_IDENTITY`, `PKG_IDENTITY` and `NOTARY_PROFILE` are set), bundle id `com.ir77io.nitrobrewtimer`.
+
+- [ ] **Step 1:** Write `scripts/build_pkg.sh` and `release.yml` by adapting Triple Espresso's (`/Users/jeisenberg/Documents/GitHub/tripleespresso/scripts/build_pkg.sh` and `.github/workflows/release.yml`): rename the app, bundle id and pkg name, keep `runs-on: macos-15` with `maxim-lobanov/setup-xcode@v1` (`latest-stable`) and the tag-matches-version check. Add a second check that fails the release if `CHANGELOG.md` has no `## X.Y.Z` heading for the tag's version, and use that changelog section as the GitHub Release notes instead of `--generate-notes`. Write fresh text; both repos are the same author's, but do not copy code from the old timer.
+- [ ] **Step 2:** Write `ci.yml` with one `macos-15` job: checkout, setup-xcode, `xcodebuild -version`, then the test command.
+- [ ] **Step 3:** Run `./scripts/build_pkg.sh` locally. Expected: `build/NitroBrew-<version>.pkg` exists and `pkgutil --payload-files` lists `NitroBrew.app`.
+- [ ] **Step 4:** Commit: `ci: GitHub Actions build, test and release`. Pushing the branch and opening a PR (which triggers the first CI run) is a separate step that waits for the author's go-ahead.
 
 ---
 
