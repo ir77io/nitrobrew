@@ -27,23 +27,28 @@ struct VesselGeometry {
     let hasFoam: Bool
     let widget: CGPoint?
 
+    /// Liquid fills from the bottom of the glass. At 100% it stops below the rim, leaving room for the stroke
+    /// (0.8) and, for vessels with a foam head, room for the head (2.4).
+    private static func make(outline: String, inner: String, hasFoam: Bool, widget: CGPoint? = nil) -> VesselGeometry {
+        let o = SVGPath.cgPath(outline)
+        let box = o.boundingBoxOfPath
+        let headroom: CGFloat = 0.8 + (hasFoam ? 2.4 : 0)
+        return VesselGeometry(outline: o, inner: SVGPath.cgPath(inner), liquidTop: box.maxY,
+                              liquidHeight: box.height - headroom, hasFoam: hasFoam, widget: widget)
+    }
+
     static func geometry(for vessel: Vessel) -> VesselGeometry {
         switch vessel {
         case .pint:
-            return VesselGeometry(
-                outline: SVGPath.cgPath("M5.5 3h13l-1.6 17.2q-.1 1-1.1 1H8.2q-1 0-1.1-1z"),
-                inner: SVGPath.cgPath("M6.3 4h11.4l-1.5 16H7.8z"),
-                liquidTop: 20, liquidHeight: 15, hasFoam: true, widget: nil)
+            return make(outline: "M5.5 3h13l-1.6 17.2q-.1 1-1.1 1H8.2q-1 0-1.1-1z",
+                        inner: "M6.3 4h11.4l-1.5 16H7.8z", hasFoam: true)
         case .can:
-            return VesselGeometry(
-                outline: SVGPath.cgPath("M8 3.5Q8 2.5 9 2.5h6q1 0 1 1V20q0 1.5-1.5 1.5h-5Q8 21.5 8 20z"),
-                inner: SVGPath.cgPath("M8.8 3.5h6.4V20.3h-6.4z"),
-                liquidTop: 20, liquidHeight: 16, hasFoam: false, widget: CGPoint(x: 12, y: 17))
+            // Chamfered shoulders top and bottom so it reads as a can, not a phone.
+            return make(outline: "M9.4 2.5h5.2L16 4.4v15.2l-1.4 1.9H9.4L8 19.6V4.4z",
+                        inner: "M9.9 3.6h4.2l1.1 1.5v14.1l-1.1 1.4H9.9l-1.1-1.4V5.1z", hasFoam: false, widget: CGPoint(x: 12, y: 17.5))
         case .pub:
-            return VesselGeometry(
-                outline: SVGPath.cgPath("M6 3h12l.4 2.8q.1 1.2-.6 1.8L16.9 20.2q-.1 1-1.1 1H8.2q-1 0-1.1-1L6.2 7.6Q5.5 7 5.6 5.8z"),
-                inner: SVGPath.cgPath("M6.8 4h10.4l.3 1.8-.4.9L16 20.2H8L6.9 6.7l-.4-.9z"),
-                liquidTop: 20, liquidHeight: 15, hasFoam: true, widget: nil)
+            return make(outline: "M6 3h12l.4 2.8q.1 1.2-.6 1.8L16.9 20.2q-.1 1-1.1 1H8.2q-1 0-1.1-1L6.2 7.6Q5.5 7 5.6 5.8z",
+                        inner: "M6.8 4h10.4l.3 1.8-.4.9L16 20.2H8L6.9 6.7l-.4-.9z", hasFoam: true)
         }
     }
 }

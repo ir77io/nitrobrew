@@ -50,6 +50,18 @@ final class VesselTests: XCTestCase {
         }
     }
 
+    func testLiquidFillsFromGlassBottomAndLeavesHeadroom() {
+        for v in Vessel.allCases {
+            let g = VesselGeometry.geometry(for: v)
+            let box = g.outline.boundingBoxOfPath
+            XCTAssertEqual(g.liquidTop, box.maxY, accuracy: 0.001, "\(v) liquid starts at the bottom of the glass")
+            let fullSurface = g.liquidTop - g.liquidHeight
+            let headroom = fullSurface - box.minY
+            XCTAssertGreaterThanOrEqual(headroom, g.hasFoam ? 3.2 - 0.001 : 0.8 - 0.001, "\(v) headroom at 100%")
+            XCTAssertLessThan(headroom, 4.0, "\(v) headroom is not wasteful")
+        }
+    }
+
     func testSVGPathParsesPintOutline() {
         let path = SVGPath.cgPath("M5.5 3h13l-1.6 17.2q-.1 1-1.1 1H8.2q-1 0-1.1-1z")
         let b = path.boundingBoxOfPath

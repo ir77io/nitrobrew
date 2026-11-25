@@ -15,9 +15,9 @@ enum MenuBarIconRenderer {
 
             if l > 0 {
                 ctx.saveGState()
-                ctx.addPath(g.inner)
+                ctx.addPath(g.outline)
                 ctx.clip()
-                ctx.fill(CGRect(x: 0, y: top, width: 24, height: CGFloat(l) * g.liquidHeight + 1))
+                ctx.fill(CGRect(x: 0, y: top, width: 24, height: CGFloat(l) * g.liquidHeight + 2))
                 ctx.restoreGState()
             }
 
@@ -28,10 +28,14 @@ enum MenuBarIconRenderer {
             ctx.strokePath()
 
             if g.hasFoam, l > 0.04 {
+                ctx.saveGState()
+                ctx.addPath(g.outline)
+                ctx.clip()
                 ctx.setFillColor(NSColor.black.withAlphaComponent(0.55).cgColor)
-                for (x, dy, r) in [(8.6, -0.2, 1.5), (12.0, -0.9, 1.8), (15.4, -0.2, 1.5)] as [(CGFloat, CGFloat, CGFloat)] {
+                for (x, dy, r) in [(8.8, -0.1, 1.2), (12.0, -0.7, 1.5), (15.2, -0.1, 1.2)] as [(CGFloat, CGFloat, CGFloat)] {
                     ctx.fillEllipse(in: CGRect(x: x - r, y: top + dy - r, width: 2 * r, height: 2 * r))
                 }
+                ctx.restoreGState()
             }
             if let w = g.widget {
                 let r: CGFloat = 1.1

@@ -26,7 +26,7 @@ struct VesselView: View {
         .accessibilityLabel(Text("\(vessel.displayName), \(Int((engine.fillLevel * 100).rounded())) percent full"))
     }
 
-    private static func draw(_ ctx: inout GraphicsContext, size: CGSize, vessel: Vessel, frame: VesselFrame, animator: VesselAnimator) {
+    static func draw(_ ctx: inout GraphicsContext, size: CGSize, vessel: Vessel, frame: VesselFrame, animator: VesselAnimator) {
         let g = VesselGeometry.geometry(for: vessel)
         let s = min(size.width / crop.width, size.height / crop.height)
         ctx.translateBy(x: (size.width - crop.width * s) / 2, y: (size.height - crop.height * s) / 2)
