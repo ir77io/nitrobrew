@@ -1,0 +1,26 @@
+name: CI
+
+# Build and run the unit tests on every push to main and on every pull request.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    # Apple Silicon. macos-15 has a large runner pool.
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: latest-stable
+
+      - name: Show toolchain
+        run: |
+          xcodebuild -version
+          sw_vers
+
+      - name: Build and test
+        run: xcodebuild test -project src/NitroBrew.xcodeproj -scheme NitroBrew -destination "platform=macOS"
