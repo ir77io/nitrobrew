@@ -27,14 +27,15 @@ struct VesselGeometry {
     let hasFoam: Bool
     let widget: CGPoint?
 
-    /// Liquid fills from the bottom of the glass. At 100% it stops below the rim, leaving room for the stroke
-    /// (0.8) and, for vessels with a foam head, room for the head (2.4).
+    /// Liquid fills from the visible floor of the glass (the inner path), so the first percent is already visible.
+    /// At 100% it stops below the rim, leaving room for the stroke (0.8) and, for vessels with a foam head, the head (2.4).
     private static func make(outline: String, inner: String, hasFoam: Bool, widget: CGPoint? = nil) -> VesselGeometry {
         let o = SVGPath.cgPath(outline)
-        let box = o.boundingBoxOfPath
+        let i = SVGPath.cgPath(inner)
+        let floor = i.boundingBoxOfPath.maxY
         let headroom: CGFloat = 0.8 + (hasFoam ? 2.4 : 0)
-        return VesselGeometry(outline: o, inner: SVGPath.cgPath(inner), liquidTop: box.maxY,
-                              liquidHeight: box.height - headroom, hasFoam: hasFoam, widget: widget)
+        return VesselGeometry(outline: o, inner: i, liquidTop: floor,
+                              liquidHeight: floor - (o.boundingBoxOfPath.minY + headroom), hasFoam: hasFoam, widget: widget)
     }
 
     static func geometry(for vessel: Vessel) -> VesselGeometry {
