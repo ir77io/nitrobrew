@@ -8,14 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		17C401AA8E31A4C849CA3668 /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFB0E757F97BB6C43B7AFADE /* SmokeTests.swift */; };
+		1A5707F5A776D396C57FDEEA /* Vessel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49603F1959A2E66D15232EDB /* Vessel.swift */; };
 		231D8D6E62D0E37958486893 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DADCFA01DACE20D2FB68C0C9 /* Localizable.xcstrings */; };
+		40447DC2C5D9D04A468E2F45 /* VesselTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F99C445A36AED28BF3CD1EF /* VesselTests.swift */; };
 		5BF9A781AB2A57589C51AA15 /* FoamModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DD206997098254332A9799 /* FoamModelTests.swift */; };
 		8322F0106CB1551665DE3DDB /* FoamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC133713B284F216C1B638AE /* FoamModel.swift */; };
 		84C5546B253D8F8A4FC53A52 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D293F596B697F4B6E3AA25 /* AppDelegate.swift */; };
 		93027F044F898C00578AB3F0 /* SessionEngineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C63C9B668E7F1A30CF75B9 /* SessionEngineTests.swift */; };
 		A3AD909CDB03496AC47B6060 /* NitroBrewApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A3F925F291DC912EDB40FC0 /* NitroBrewApp.swift */; };
 		B72330310987FB637031D19A /* SessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469D5B86E9E9C119C5745563 /* SessionEngine.swift */; };
+		C9E4CE78CC3731FED494D812 /* MenuBarIconRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC2AFD31206FEB7EEF59CD2 /* MenuBarIconRenderer.swift */; };
 		D2F4009433523A563DD90450 /* SessionMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4616E83834A464E7461E9AD3 /* SessionMode.swift */; };
+		E5369403D7817ECCD0E65642 /* VesselAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 932831478FF1D3968B09E4C7 /* VesselAnimator.swift */; };
+		E6A1FB9E8CB58B781E5E152F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D095D8E88BFB96BE9950B5D /* Theme.swift */; };
+		E94577F288FBDAEEBDC65859 /* CascadeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E1EF1149D592F6192A0A59 /* CascadeModel.swift */; };
+		EF4B6B3710C483EFD3571E47 /* VesselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B63F54561C3F3F6C0B56A02 /* VesselView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,16 +37,23 @@
 
 /* Begin PBXFileReference section */
 		0F5609C5A03D253532437922 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		14E1EF1149D592F6192A0A59 /* CascadeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CascadeModel.swift; sourceTree = "<group>"; };
 		203DD6C68782AEB122C64A1A /* NitroBrew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NitroBrew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4616E83834A464E7461E9AD3 /* SessionMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionMode.swift; sourceTree = "<group>"; };
 		469D5B86E9E9C119C5745563 /* SessionEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEngine.swift; sourceTree = "<group>"; };
 		48DD206997098254332A9799 /* FoamModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoamModelTests.swift; sourceTree = "<group>"; };
+		49603F1959A2E66D15232EDB /* Vessel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vessel.swift; sourceTree = "<group>"; };
+		4B63F54561C3F3F6C0B56A02 /* VesselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselView.swift; sourceTree = "<group>"; };
+		7D095D8E88BFB96BE9950B5D /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		7F99C445A36AED28BF3CD1EF /* VesselTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselTests.swift; sourceTree = "<group>"; };
 		8A3F925F291DC912EDB40FC0 /* NitroBrewApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NitroBrewApp.swift; sourceTree = "<group>"; };
+		932831478FF1D3968B09E4C7 /* VesselAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VesselAnimator.swift; sourceTree = "<group>"; };
 		99C63C9B668E7F1A30CF75B9 /* SessionEngineTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEngineTests.swift; sourceTree = "<group>"; };
 		AD66000ACFE1EAF65199463B /* NitroBrewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NitroBrewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D293F596B697F4B6E3AA25 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BFB0E757F97BB6C43B7AFADE /* SmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTests.swift; sourceTree = "<group>"; };
 		DADCFA01DACE20D2FB68C0C9 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		DFC2AFD31206FEB7EEF59CD2 /* MenuBarIconRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarIconRenderer.swift; sourceTree = "<group>"; };
 		FC133713B284F216C1B638AE /* FoamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoamModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +65,7 @@
 				EBC84E1F6CC86B7F7CC1BF95 /* Resources */,
 				97FAC877DED200A0D21E2E2F /* Timer */,
 				3E8B621A1BDC939BBB8A4A8F /* Vessels */,
+				5B7A34651F83D43B2A7048A7 /* Views */,
 			);
 			path = NitroBrew;
 			sourceTree = "<group>";
@@ -58,7 +73,12 @@
 		3E8B621A1BDC939BBB8A4A8F /* Vessels */ = {
 			isa = PBXGroup;
 			children = (
+				14E1EF1149D592F6192A0A59 /* CascadeModel.swift */,
 				FC133713B284F216C1B638AE /* FoamModel.swift */,
+				DFC2AFD31206FEB7EEF59CD2 /* MenuBarIconRenderer.swift */,
+				49603F1959A2E66D15232EDB /* Vessel.swift */,
+				932831478FF1D3968B09E4C7 /* VesselAnimator.swift */,
+				4B63F54561C3F3F6C0B56A02 /* VesselView.swift */,
 			);
 			path = Vessels;
 			sourceTree = "<group>";
@@ -78,8 +98,17 @@
 				48DD206997098254332A9799 /* FoamModelTests.swift */,
 				99C63C9B668E7F1A30CF75B9 /* SessionEngineTests.swift */,
 				BFB0E757F97BB6C43B7AFADE /* SmokeTests.swift */,
+				7F99C445A36AED28BF3CD1EF /* VesselTests.swift */,
 			);
 			path = NitroBrewTests;
+			sourceTree = "<group>";
+		};
+		5B7A34651F83D43B2A7048A7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7D095D8E88BFB96BE9950B5D /* Theme.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		97FAC877DED200A0D21E2E2F /* Timer */ = {
@@ -213,10 +242,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				84C5546B253D8F8A4FC53A52 /* AppDelegate.swift in Sources */,
+				E94577F288FBDAEEBDC65859 /* CascadeModel.swift in Sources */,
 				8322F0106CB1551665DE3DDB /* FoamModel.swift in Sources */,
+				C9E4CE78CC3731FED494D812 /* MenuBarIconRenderer.swift in Sources */,
 				A3AD909CDB03496AC47B6060 /* NitroBrewApp.swift in Sources */,
 				B72330310987FB637031D19A /* SessionEngine.swift in Sources */,
 				D2F4009433523A563DD90450 /* SessionMode.swift in Sources */,
+				E6A1FB9E8CB58B781E5E152F /* Theme.swift in Sources */,
+				1A5707F5A776D396C57FDEEA /* Vessel.swift in Sources */,
+				E5369403D7817ECCD0E65642 /* VesselAnimator.swift in Sources */,
+				EF4B6B3710C483EFD3571E47 /* VesselView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +262,7 @@
 				5BF9A781AB2A57589C51AA15 /* FoamModelTests.swift in Sources */,
 				93027F044F898C00578AB3F0 /* SessionEngineTests.swift in Sources */,
 				17C401AA8E31A4C849CA3668 /* SmokeTests.swift in Sources */,
+				40447DC2C5D9D04A468E2F45 /* VesselTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
