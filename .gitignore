@@ -1,0 +1,9 @@
+# Xcode
+DerivedData/
+build/
+*.xcuserstate
+xcuserdata/
+.build/
+.DS_Store
+# Agent scratch
+.superpowers/

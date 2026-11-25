@@ -1,0 +1,57 @@
+name: NitroBrew
+options:
+  bundleIdPrefix: com.ir77io
+  deploymentTarget:
+    macOS: "14.6"
+  createIntermediateGroups: true
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+    DEVELOPMENT_TEAM: ""
+targets:
+  NitroBrew:
+    type: application
+    platform: macOS
+    sources:
+      - NitroBrew
+    info:
+      path: NitroBrew/Resources/Info.plist
+      properties:
+        CFBundleName: NitroBrew
+        CFBundleDisplayName: NitroBrew
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSUIElement: true
+        LSApplicationCategoryType: public.app-category.productivity
+        NSHumanReadableCopyright: "© 2026 ir77io"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ir77io.nitrobrewtimer
+        PRODUCT_NAME: NitroBrew
+        GENERATE_INFOPLIST_FILE: NO
+  NitroBrewTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - NitroBrewTests
+    dependencies:
+      - target: NitroBrew
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.ir77io.nitrobrewtimer.tests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  NitroBrew:
+    build:
+      targets:
+        NitroBrew: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      targets:
+        - NitroBrewTests
