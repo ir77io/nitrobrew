@@ -32,7 +32,12 @@ final class AppCoordinator: ObservableObject {
 
     // MARK: Controls (always go through here so statistics and persistence stay correct)
 
-    func start() { engine.start(); saveState() }
+    func start() {
+        // Starting again after a finished session drops that session's "Start next" banner.
+        if engine.phase == .done { completion = nil }
+        engine.start()
+        saveState()
+    }
     func pause() { engine.pause(); saveState() }
 
     func reset() {
@@ -55,6 +60,8 @@ final class AppCoordinator: ObservableObject {
 
     func startNext() {
         completion = nil
+        // Only offered after a finished session; never discard one that is running or paused.
+        guard engine.phase == .done else { return }
         let current = engine.mode
         let next: SessionMode = current.isWork ? (current == .work50 ? .break10 : .break5) : lastWorkMode
         engine.select(next)
@@ -75,6 +82,9 @@ final class AppCoordinator: ObservableObject {
         guard let data = defaults.data(forKey: Key.snapshot),
               let snapshot = try? JSONDecoder().decode(EngineSnapshot.self, from: data) else { return }
         engine.restore(snapshot)
+        if engine.phase == .done {
+            completion = CompletionMessage.make(finished: engine.mode, vessel: settings.vessel)
+        }
     }
 
     // MARK: Private

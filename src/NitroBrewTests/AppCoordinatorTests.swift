@@ -182,4 +182,45 @@ final class AppCoordinatorTests: XCTestCase {
         c.dismissCompletion()
         XCTAssertNil(c.completion)
     }
+
+    // MARK: Final-review fixes
+
+    func testStartAfterDoneClearsStaleBanner() {
+        let c = make()
+        finishWork(c)
+        XCTAssertNotNil(c.completion)
+        c.start()
+        XCTAssertNil(c.completion)
+        XCTAssertEqual(c.engine.phase, .running)
+        XCTAssertEqual(c.engine.mode, .work25)
+    }
+
+    func testStartNextWhileSessionRunningKeepsTheRunningSession() {
+        let c = make()
+        c.start()
+        now.addTimeInterval(600)
+        c.completion = CompletionMessage.make(finished: .work25, vessel: .pint) // a stale banner
+        c.startNext()
+        XCTAssertEqual(c.engine.mode, .work25)
+        XCTAssertEqual(c.engine.phase, .running)
+        XCTAssertEqual(c.engine.remaining, 900, accuracy: 0.001)
+        XCTAssertNil(c.completion)
+        XCTAssertTrue(stats.records.isEmpty)
+    }
+
+    func testRelaunchWhileDoneRestoresBannerAndSettledFoam() {
+        let first = make()
+        finishWork(first)
+        first.saveState()
+        now.addTimeInterval(3_600)
+        let second = make()
+        second.restoreState()
+        XCTAssertEqual(second.engine.phase, .done)
+        XCTAssertEqual(second.completion, CompletionMessage.make(finished: .work25, vessel: .pint))
+        XCTAssertNotNil(second.engine.completedAt)
+        second.tick()
+        XCTAssertEqual(stats.records.count, 1, "a restored done session must not be recorded again")
+        XCTAssertEqual(notifier.messages.count, 1)
+    }
 }
+

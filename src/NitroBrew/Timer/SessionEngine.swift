@@ -5,6 +5,7 @@ struct EngineSnapshot: Codable, Equatable {
     var phase: SessionPhase
     var endDate: Date?
     var pausedRemaining: TimeInterval?
+    var completedAt: Date?
 }
 
 /// Wall-clock session timer. It owns no timers: callers invoke `tick()`.
@@ -92,7 +93,7 @@ final class SessionEngine: ObservableObject {
     }
 
     func snapshot() -> EngineSnapshot {
-        EngineSnapshot(mode: mode, phase: phase, endDate: endDate, pausedRemaining: pausedRemaining)
+        EngineSnapshot(mode: mode, phase: phase, endDate: endDate, pausedRemaining: pausedRemaining, completedAt: completedAt)
     }
 
     func restore(_ s: EngineSnapshot) {
@@ -101,6 +102,6 @@ final class SessionEngine: ObservableObject {
         endDate = s.endDate
         pausedRemaining = s.pausedRemaining
         cascadeStart = nil
-        completedAt = nil
+        completedAt = s.phase == .done ? s.completedAt : nil
     }
 }

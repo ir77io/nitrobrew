@@ -10,8 +10,24 @@ protocol SoundPlaying {
     func play(_ sound: AlertSound)
 }
 
+/// Lets banners show while NitroBrew is the active app (a menu bar app often is, after its popover was opened).
+final class NotificationPresenter: NSObject, UNUserNotificationCenterDelegate {
+    static let presentationOptions: UNNotificationPresentationOptions = [.banner, .list]
+
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler(Self.presentationOptions)
+    }
+}
+
 /// Posts a local notification. Failure or denied permission is silent: the app still works.
 final class UserNotifier: Notifying {
+    private let presenter = NotificationPresenter()
+
+    init() {
+        UNUserNotificationCenter.current().delegate = presenter
+    }
+
     func requestAuthorization() async {
         _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
     }

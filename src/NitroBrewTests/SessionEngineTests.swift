@@ -123,4 +123,20 @@ final class SessionEngineTests: XCTestCase {
         XCTAssertEqual(b.phase, .paused)
         XCTAssertEqual(b.remaining, 1100, accuracy: 0.0001)
     }
+
+    func testSnapshotCarriesCompletedAt() {
+        let a = makeEngine()
+        a.start()
+        now.addTimeInterval(1_600)
+        a.tick()
+        let done = a.completedAt
+        XCTAssertNotNil(done)
+        let snap = a.snapshot()
+        XCTAssertEqual(snap.completedAt, done)
+        let b = makeEngine()
+        b.restore(snap)
+        XCTAssertEqual(b.phase, .done)
+        XCTAssertEqual(b.completedAt, done)
+    }
 }
+
